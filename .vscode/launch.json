@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DpviacepApplication<dpviacep>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dpviacep.DpviacepApplication",
+            "projectName": "dpviacep",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
