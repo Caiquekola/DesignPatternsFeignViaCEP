@@ -11,6 +11,6 @@ import com.dpviacep.model.Endereco;
 public interface  ViaCepService {
     
     @GetMapping("/{cep}/json")
-    Endereco consultarCep(@PathVariable("cep") String cep);
+    EnderecoDTO consultarCep(@PathVariable("cep") String cep);
     
 }

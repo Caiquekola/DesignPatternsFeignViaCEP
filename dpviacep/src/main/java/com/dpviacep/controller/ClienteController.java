@@ -49,13 +49,13 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> inserir(@PathVariable Long id,@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id,@RequestBody Cliente cliente) {
         clienteServiceImp.atualizar(id, cliente);
         return ResponseEntity.status(HttpStatus.OK).body(cliente); 
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> inserir(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         clienteServiceImp.deletar(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); 
     }
