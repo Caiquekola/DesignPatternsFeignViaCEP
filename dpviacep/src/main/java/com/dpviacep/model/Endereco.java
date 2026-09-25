@@ -9,28 +9,42 @@ import jakarta.persistence.Id;
 public class Endereco {
 
     @Id 
-    public String cep;
-    public String logradouro;
-    public String complemento;
-    public String unidade;
-    public String bairro;
-    public String localidade;
-    public String uf;
-    public String estado;
-    public String regiao;
-    public String ibge;
-    public String gia;
-    public String ddd;
-    public String siafi;
+    private String cep;
+    private String logradouro;
+    private String complemento;
+    private String unidade;
+    private String bairro;
+    private String localidade;
+    private String uf;
+    private String estado;
+    private String regiao;
+    private String ibge;
+    private String gia;
+    private String ddd;
+    private String siafi;
 
 
     
     public Endereco() {
     }
-    public Endereco(String cep, String logradouro, String complemento, String unidade, String bairro, String localidade,
-            String uf, String estado, String regiao, String ibge, String gia, String ddd, String siafi) {
-        
-    }
+    public Endereco(String cep, String logradouro, String complemento, String unidade,
+        String bairro, String localidade, String uf, String estado,
+        String regiao, String ibge, String gia, String ddd, String siafi) {
+
+    this.cep = cep;
+    this.logradouro = logradouro;
+    this.complemento = complemento;
+    this.unidade = unidade;
+    this.bairro = bairro;
+    this.localidade = localidade;
+    this.uf = uf;
+    this.estado = estado;
+    this.regiao = regiao;
+    this.ibge = ibge;
+    this.gia = gia;
+    this.ddd = ddd;
+    this.siafi = siafi;
+}
     public static Endereco toEntity(EnderecoDTO dto) {
         Endereco end = new Endereco();
         end.setCep(dto.cep());

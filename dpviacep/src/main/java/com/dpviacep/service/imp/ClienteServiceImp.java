@@ -40,9 +40,24 @@ public class ClienteServiceImp implements ClientService {
     }
 
     @Override
-    public void inserir(Cliente cliente) {
-        String cepCliente = cliente.getEndereco().getCep();
-        Endereco enderecoCliente = enderecoRepository.findById(cepCliente).orElseGet(()->
+    public Cliente inserir(Cliente cliente) {
+        
+ System.out.println("CLIENTE: " + cliente);
+    System.out.println("ENDERECO: " + cliente.getEndereco());
+    System.out.println("Nome cliente: " + cliente.getNome());
+    System.out.println("CEP GETTER: " + cliente.getEndereco().getCep());
+
+
+        String cepCliente = cliente.getEndereco().getCep().replaceAll("\\D","");
+
+
+        if(cepCliente.length()!=8){
+                    System.out.println("CEP inválido: deve conter 8 dígitos");
+        }
+
+        Endereco enderecoCliente = enderecoRepository.
+                    findById(cepCliente).
+                    orElseGet(()->
         {
             EnderecoDTO enderecoDTO = viaceCepService.consultarCep(cepCliente);
             Endereco endereco = Endereco.toEntity(enderecoDTO);
@@ -50,7 +65,7 @@ public class ClienteServiceImp implements ClientService {
             return endereco;
         });
         cliente.setEndereco(enderecoCliente);
-        clienteRepository.save(cliente);
+        return clienteRepository.save(cliente);
     }
 
     @Override

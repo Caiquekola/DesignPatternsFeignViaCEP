@@ -45,7 +45,9 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<Cliente> inserir(@RequestBody Cliente cliente) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(cliente); 
+        Cliente clienteSalvo = clienteServiceImp.inserir(cliente);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteSalvo); 
     }
 
     @PutMapping("/{id}")
